@@ -1,10 +1,51 @@
 .card{
     margin-top: 20px;
+    cursor: pointer;
+    cursor: hand;
+    transition: 0.5s;
+    border: 2px solid #000;
 }
+
+.card:hover {
+  border: 2px solid rgba(0,160,80,0);
+  color: #0275d8;    
+}
+
+.card:hover::after, .card:hover::before {
+  -webkit-transform: scale(1);
+}
+
+.card::before, .card::after {
+  width: 100%;
+  height:100%;
+  z-index: 3;
+  content:'';
+  position: absolute;
+  top:0;
+  left:0;
+  box-sizing: border-box;
+  -webkit-transform: scale(0);
+  transition: 0.5s;
+}
+
+.card::before {
+  border-bottom: 3px solid #000;
+  border-left: 3px solid #000;
+  -webkit-transform-origin: 0 100%;
+}
+
+.card::after {
+  border-top: 3px solid #000;
+  border-right: 3px solid #000;
+  -webkit-transform-origin: 100% 0%;
+}
+
+
 
 #card-content h6, p{
     color: black;
 }
+
 
 .fa-mars{
     color: #3D77CE;
@@ -13,3 +54,50 @@
 .fa-venus{
     color: #CE44C4;
 }
+
+.fa-transgender-alt{
+    color: darkmagenta;
+}
+
+.fa-circle:before {
+  content: ' \25CF';
+  font-size: 35px;
+}
+
+.fa-circle.undetermined {
+  color: grey;
+}
+
+.fa-circle.good {
+  color: green;
+}
+
+.fa-circle.fair {
+  color: #ffdb58;
+}
+
+.fa-circle.serious {
+  color: red;
+}
+
+.fa-circle.critical {
+  color: darkred;
+}
+
+.fa-circle.dead {
+  color: black;
+}
+
+/*Undetermined
+Patient awaiting physician and/or assessment.
+Good
+Vital signs are stable and within normal limits. Patient is conscious and comfortable. Indicators are excellent.
+Fair
+Vital signs are stable and within normal limits. Patient is conscious, but may be uncomfortable. Indicators are favorable.
+Serious
+Vital signs may be unstable and not within normal limits. Patient is seriously ill. Indicators are questionable.
+Critical
+Vital signs are unstable and not within normal limits. Patient may be unconscious. Indicators are unfavorable.
+Dead
+Vital signs are persistently absent. */
+
