@@ -1,3 +1,15 @@
 .card{
     margin-top: 20px;
 }
+
+#card-content h6, p{
+    color: black;
+}
+
+.fa-mars{
+    color: #3D77CE;
+}
+
+.fa-venus{
+    color: #CE44C4;
+}
