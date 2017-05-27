@@ -1,3 +1,39 @@
+.circle-border {
+        display: inline-block;
+        color: white;
+        font: 18px sans-serif;
+        background: black;
+        border:2px solid black;
+        width: 30px;
+        height: 30px;
+        border-radius:17px; /* half of width + borders */ 
+        line-height: 30px; /* vertical center */
+        text-align: center; /* horizontal center */
+    }
+
+.circle-border.undetermined {
+        background: grey;
+    }
+.circle-border.good {
+        background: green;
+    }
+.circle-border.fair {
+        background: #E8E819;
+    }
+.circle-border.serious {
+        background: #EE7600;
+    }
+.circle-border.critical {
+        background: darkred;
+    }
+.circle-border.dead {
+        background: black;
+        color: white;
+    }
+
+
+
+
 .card{
     margin-top: 20px;
     cursor: pointer;
@@ -77,7 +113,7 @@
 }
 
 .fa-circle.serious {
-  color: red;
+  color: #EE7600;
 }
 
 .fa-circle.critical {
