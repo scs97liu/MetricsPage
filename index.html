@@ -44,24 +44,9 @@
 
           <!--Call your modal-->
         <ul style="display: none;">
-            <li><a id="demo01" href="#animatedModal">DEMO01</a></li>
             <li><a id="demo02" href="#modal-02">DEMO02</a></li>
         </ul>
 
-        <!--DEMO01-->
-        <div id="animatedModal" >
-            <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
-            <div class="close-animatedModal"> 
-                CLOSE MODAL
-            </div>
-                
-            <div class="modal-content">
-                <h1>
-                    hello
-                </h1>
-                <h2> Ayyyy </h2>
-                    <!--Your modal content goes here-->
-            </div>
         </div>
 
         <!--DEMO02-->
@@ -160,14 +145,12 @@
      
      
     <script>
-    $("#demo01").animatedModal();
-
     //demo 02
             $("#demo02").animatedModal({
                 modalTarget:'modal-02',
-                animatedIn:'lightSpeedIn',
-                animatedOut:'bounceOutDown',
-                color:'#3498db',
+                animatedIn:'zoomIn',
+                animatedOut:'bounceOut',
+                color:'#39BEB9',
                 // Callbacks
                 beforeOpen: function() {
                     console.log("The animation was called");
@@ -183,6 +166,8 @@
                 }
             });
     </script>
+
+    
 
 
     </body>
