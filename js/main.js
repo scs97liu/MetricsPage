@@ -40,6 +40,7 @@ jQuery(document).ready(function($) {
                 beforeOpen: function() {
                     console.log("The animation was called");
                      $(".content").addClass("blur")
+                     $(".navbar").addClass("blur")
                 },
                 afterOpen: function() {
                     console.log("The animation is completed");
@@ -48,6 +49,8 @@ jQuery(document).ready(function($) {
                 beforeClose: function() {
                     console.log("The animation was called");
                     $(".content").removeClass("blur")
+                    $(".navbar").removeClass("blur")
+
                 },
                 afterClose: function() {
                     console.log("The animation is completed");
