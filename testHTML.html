@@ -2,46 +2,48 @@
     <a style="color: black" id"close-button" href="" class="fa fa-times-circle-o fa-lg" aria-hidden="true"></a>
 </div>
 
-<div id="modal-body" class="modal-content container-fluid">
+<div id="modal-body" class="modal-content">
     <h2>$Patient Name <div class="circle-border">F</div></h2>
     <h5>$PCMID</h5>
-    <div id="modalTable">
-        <table class="table table-responsive">
-          <thead class="thead-inverse">
-            <tr>
-              <th>#</th>
-              <th>Metric Name</th>
-              <th>Quantity</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td align="center">Tasks</td>
-              <td>$tasks</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Tasks Completed</td>
-              <td>$tasksCompleted</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Unceratinities</td>
-              <td>$uncertainities</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>Urgencies</td>
-              <td>$urgencies</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Graph Complexity</td>
-              <td>$crossreferences</td>
-            </tr>
-          </tbody>
+    <div id="modalTable" class="table-responsive">
+        <table class="table">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>#</th>
+                    <th>Metric Name</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td align="center">Tasks</td>
+                    <td>$tasks</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Tasks Completed</td>
+                    <td>$tasksCompleted</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Unceratinities</td>
+                    <td>$uncertainities</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Urgencies</td>
+                    <td>$urgencies</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Graph Complexity</td>
+                    <td>$crossreferences</td>
+                </tr>
+            </tbody>
         </table>
     </div>
+
+    <div id="container" style="width:100%; height:400px;"></div>
     <!--Your modal content goes here-->
 </div>
