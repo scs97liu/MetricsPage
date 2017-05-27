@@ -17,6 +17,10 @@ $(function () {
         series: [{
             name: 'Thunder Bay Regional',
             data: [10, 7, 3, 10, 5]
+        },
+        {
+            name: 'Some Other Hospital',
+            data: [20, 1, 4, 6, 10]
         }]
     });
 });
