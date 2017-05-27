@@ -1,19 +1,19 @@
 jQuery(document).ready(function($) {
      $('.card').click(function(e) {
         e.preventDefault();
-        if (this.id != "Donalad") { 
-            var xhttp = new XMLHttpRequest(); 
+        if (this.id != "Donalad") {
+            var xhttp = new XMLHttpRequest();
             // LOAD GET HERE FROM THIS.ID
-            xhttp.open("GET", "testHTML.html", false); 
-            xhttp.send(); 
-            document.getElementById("modal-02").innerHTML = xhttp.responseText; 
+            xhttp.open("GET", "testHTML.html", false);
+            xhttp.send();
+            document.getElementById("modal-02").innerHTML = xhttp.responseText;
         }
 
         $("#demo02").animatedModal({
                 modalTarget:'modal-02',
                 animatedIn:'zoomIn',
                 animatedOut:'bounceOutDown',
-                color:'#3498db',
+                color:'#066bc4',
                 // Callbacks
                 beforeOpen: function() {
                     console.log("The animation was called");
@@ -29,7 +29,7 @@ jQuery(document).ready(function($) {
                 }
             });
 
-        $("#demo02").click();  
+        $("#demo02").click();
     });
 
     $(document).keyup(function(e) {
