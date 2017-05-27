@@ -62,6 +62,7 @@
 .fa-circle:before {
   content: ' \25CF';
   font-size: 35px;
+  text-shadow: 0px 0px 10px #000;
 }
 
 .fa-circle.undetermined {

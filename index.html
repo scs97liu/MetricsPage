@@ -13,6 +13,8 @@
         <!--Let browser know website is optimized for mobile-->
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
+
     </head>
 
     <body style="background-color: #066bc4;">
@@ -21,6 +23,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/animatedModal.min.js"></script>
 
         <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,6 +42,45 @@
             </div>
         </nav>
 
+          <!--Call your modal-->
+        <ul style="display: none;">
+            <li><a id="demo01" href="#animatedModal">DEMO01</a></li>
+            <li><a id="demo02" href="#modal-02">DEMO02</a></li>
+        </ul>
+
+        <!--DEMO01-->
+        <div id="animatedModal" >
+            <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+            <div class="close-animatedModal"> 
+                CLOSE MODAL
+            </div>
+                
+            <div class="modal-content">
+                <h1>
+                    hello
+                </h1>
+                <h2> Ayyyy </h2>
+                    <!--Your modal content goes here-->
+            </div>
+        </div>
+
+        <!--DEMO02-->
+        <div id="modal-02">
+            <!--"THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID-->
+            <div  id="btn-close-modal" class="close-modal-02"> 
+                CLOSE MODAL
+            </div>
+            
+            <div class="modal-content">
+                <h2>
+                    LOTS OF GOOD CONTENT here
+                </h2>
+                <p> Paragraph </p>
+                <!--Your modal content goes here-->
+            </div>
+        </div>
+
+
         <!-- TEMPLATE INFO
             $GENDERfa-mars = male; fa-venus = female; fa-transgender-alt = other;
 
@@ -49,7 +91,7 @@
         <div class="container-fluid" id="card-list">
             <div class="row">
                 <div class="col">
-                        <div class="card">
+                        <div class="card" id="Donald">
                             <div class="card-block" id="card-content">
                                 <h4 class="card-title">Donald Duck</h4>
                                 <h6 class="card-subtitle mb-2 text-muted">TD10006/18</h6>
@@ -114,6 +156,34 @@
                 </div>
           </div>
       </div>
+
+     
+     
+    <script>
+    $("#demo01").animatedModal();
+
+    //demo 02
+            $("#demo02").animatedModal({
+                modalTarget:'modal-02',
+                animatedIn:'lightSpeedIn',
+                animatedOut:'bounceOutDown',
+                color:'#3498db',
+                // Callbacks
+                beforeOpen: function() {
+                    console.log("The animation was called");
+                },           
+                afterOpen: function() {
+                    console.log("The animation is completed");
+                }, 
+                beforeClose: function() {
+                    console.log("The animation was called");
+                }, 
+                afterClose: function() {
+                    console.log("The animation is completed");
+                }
+            });
+    </script>
+
 
     </body>
 </html>
