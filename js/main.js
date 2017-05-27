@@ -13,19 +13,23 @@ jQuery(document).ready(function($) {
                 modalTarget:'modal-02',
                 animatedIn:'zoomIn',
                 animatedOut:'bounceOutDown',
-                color:'#066bc4',
+                color:'rgba(44, 80, 147, 0.5)',
                 // Callbacks
                 beforeOpen: function() {
                     console.log("The animation was called");
+                     $(".content").addClass("blur")
                 },
                 afterOpen: function() {
                     console.log("The animation is completed");
+                   
                 },
                 beforeClose: function() {
                     console.log("The animation was called");
+                    $(".content").removeClass("blur")
                 },
                 afterClose: function() {
                     console.log("The animation is completed");
+                    
                 }
             });
 

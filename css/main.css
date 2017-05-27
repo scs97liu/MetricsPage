@@ -31,6 +31,11 @@
         color: white;
     }
 
+.blur {
+  -webkit-filter: blur(3px);
+	-moz-filter: blur(3px);
+	filter: blur(3px);
+}
 .modal-content h2,h5{
     text-align: center
 }
