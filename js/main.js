@@ -1,13 +1,35 @@
 jQuery(document).ready(function($) {
      $('.card').click(function(e) {
         e.preventDefault();
-        if (this.id == "Donald") {
-            $("#demo02").click(); 
-        } else {
-            console.log("Card clicked. Do somethng here") 
+        if (this.id != "Donalad") { 
+            var xhttp = new XMLHttpRequest(); 
+            // LOAD GET HERE FROM THIS.ID
+            xhttp.open("GET", "testHTML.html", false); 
+            xhttp.send(); 
+            document.getElementById("modal-02").innerHTML = xhttp.responseText; 
         }
-        console.log("Clickd")
-        //window.location = 'http://stackoverflow.com/';
+
+        $("#demo02").animatedModal({
+                modalTarget:'modal-02',
+                animatedIn:'zoomIn',
+                animatedOut:'bounceOutDown',
+                color:'#3498db',
+                // Callbacks
+                beforeOpen: function() {
+                    console.log("The animation was called");
+                },
+                afterOpen: function() {
+                    console.log("The animation is completed");
+                },
+                beforeClose: function() {
+                    console.log("The animation was called");
+                },
+                afterClose: function() {
+                    console.log("The animation is completed");
+                }
+            });
+
+        $("#demo02").click();  
     });
 
     $(document).keyup(function(e) {
