@@ -7,6 +7,28 @@ jQuery(document).ready(function($) {
             xhttp.open("GET", "testHTML.html", false);
             xhttp.send();
             document.getElementById("modal-02").innerHTML = xhttp.responseText;
+            $(function () {
+                var myChart = Highcharts.chart('container', {
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: {
+                        text: 'Metrics'
+                    },
+                    xAxis: {
+                        categories: ['Tasks', 'Tasks Completed', 'Uncertainities', 'Urgency', 'Graph Complexity']
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Number'
+                        }
+                    },
+                    series: [{
+                        name: '$PatientName',
+                        data: [6, 2, 4, 5, 4]
+                        }]
+                });
+            });
         }
 
         $("#demo02").animatedModal({
@@ -21,7 +43,7 @@ jQuery(document).ready(function($) {
                 },
                 afterOpen: function() {
                     console.log("The animation is completed");
-                   
+
                 },
                 beforeClose: function() {
                     console.log("The animation was called");
@@ -29,11 +51,34 @@ jQuery(document).ready(function($) {
                 },
                 afterClose: function() {
                     console.log("The animation is completed");
-                    
+
                 }
             });
 
         $("#demo02").click();
+    });
+
+    $(function () {
+        var myChart = Highcharts.chart('barChart', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Aggregate Metric Analysis'
+            },
+            xAxis: {
+                categories: ['Tasks', 'Tasks Completed', 'Unceratinities', 'Urgencies', 'Graph Complexity']
+            },
+            yAxis: {
+                title: {
+                    text: 'Total number of cases'
+                }
+            },
+            series: [{
+                name: 'Thunder Bay Regional',
+                data: [10, 7, 3, 10, 5]
+            }]
+        });
     });
 
     $(document).keyup(function(e) {
