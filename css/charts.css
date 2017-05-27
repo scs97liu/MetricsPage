@@ -2,3 +2,7 @@
         margin: 50px auto;
         align-items: center;
 }
+
+.navbar, .bg-inverse,{
+    color: white;
+}

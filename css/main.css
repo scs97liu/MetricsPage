@@ -139,6 +139,10 @@
   color: black;
 }
 
+.navbar{
+    color:white;
+}
+
 #modal-body{
     padding: 30px 30px 30px 30px;
     margin: 2% 15% 5% 15%;
