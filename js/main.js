@@ -113,7 +113,6 @@ jQuery(document).ready(function($) {
         $(".card-subtitle").each(function(){
              var $this = $(this);
              if($this.text().toLowerCase().indexOf(query) === -1){
-                $this.closest('div.card').parent().fadeOut();
             }
             else $this.closest('div.card').parent().fadeIn();
         });
