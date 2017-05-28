@@ -90,10 +90,27 @@ jQuery(document).ready(function($) {
         $('.close-modal-02').click();
     });
 
+    $('.dropdown-item').click(function(e){
+        var status=($(this)[0].childNodes[1].className);
+            $(".circle-border").each(function(){
+                $(this).closest('div.card').parent().fadeOut();
+                if($(this)[0].className == status){
+                    $(this).closest('div.card').parent().fadeIn();
+                }
+            });
+    });
+
     $('.form-search').on('submit',function(){return false;});
     $('.form-search .btn').on('click', function(e){
         var query = $.trim($(this).prevAll('.search-query').val()).toLowerCase();
         $(".card-title").each(function(){
+             var $this = $(this);
+             if($this.text().toLowerCase().indexOf(query) === -1){
+                $this.closest('div.card').parent().fadeOut();
+            }
+            else $this.closest('div.card').parent().fadeIn();
+        });
+        $(".card-subtitle").each(function(){
              var $this = $(this);
              if($this.text().toLowerCase().indexOf(query) === -1){
                 $this.closest('div.card').parent().fadeOut();
