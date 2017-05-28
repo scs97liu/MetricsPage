@@ -179,7 +179,7 @@
           </div>
       </div>
 
-      <div class="container grid hide" id="grid-list">
+      <div class="content container grid hide" id="grid-list">
         <table id="grid-table" class="display table table-white text-center table-hover" cellspacing="0" width="100%">
             <thead class="thead-inverse">
                 <tr>
@@ -240,15 +240,12 @@
             setTimeout(function () {
                 flash($element, times - 1);
             }, 230);
-            }
-         var gtable =  $('#grid-table').DataTable( {
+        }
+        
+        // tapped row in list
+     var gtable =  $('#grid-table').DataTable( {
                 "bPaginate": false
             } );
-
-        $('#grid-table tbody').on('click', 'tr', function () {
-            var data = gtable.row( this ).data();
-            alert( 'You clicked on '+data[0]+'\'s row' );
-        } );
 
            var connection = new WebSocket("ws://localhost:9000/ws");
 
