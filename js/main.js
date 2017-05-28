@@ -23,60 +23,74 @@ jQuery(document).ready(function($) {
         }
     });
 
+    var showModal = function(id) {
+        console.log("PasSED ID:" + id)
+        var xhttp = new XMLHttpRequest();
+        
+        xhttp.open("GET", "testHTML.html", false);
+        xhttp.send();
+        document.getElementById("modal-02").innerHTML = xhttp.responseText;
+        $(function () {
+            var myChart = Highcharts.chart('container', {
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Metrics'
+                },
+                xAxis: {
+                    categories: ['Tasks', 'Tasks Completed', 'Uncertainities', 'Urgency', 'Graph Complexity']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Number'
+                    }
+                },
+                series: [{
+                    name: '$PatientName',
+                    data: [6, 2, 4, 5, 4]
+                    }]
+            });
+        });
+
+        // init the popup modal
+        $("#demo02").animatedModal({
+            modalTarget:'modal-02',
+            animatedIn:'zoomIn',
+            animatedOut:'bounceOutDown',
+            color:'rgba(44, 80, 147, 0.5)',
+            zIndexIn: '9999',  
+            zIndexOut: '9999',
+            // Callbacks
+            beforeOpen: function() {
+                    $(".content").addClass("blur")
+                    $(".navbar").addClass("blur")
+            },
+            afterOpen: function() {
+            },
+            beforeClose: function() {
+                $(".content").removeClass("blur")
+                $(".navbar").removeClass("blur")
+            },
+            afterClose: function() {
+
+            }
+        });
+        // activate the modal
+        $("#demo02").click();
+    };
+
+
+
      $('.card').click(function(e) {
         e.preventDefault();
-        if (this.id != "Donalad") {
-            var xhttp = new XMLHttpRequest();
-            // LOAD GET HERE FROM THIS.ID
-            xhttp.open("GET", "testHTML.html", false);
-            xhttp.send();
-            document.getElementById("modal-02").innerHTML = xhttp.responseText;
-            $(function () {
-                var myChart = Highcharts.chart('container', {
-                    chart: {
-                        type: 'bar'
-                    },
-                    title: {
-                        text: 'Metrics'
-                    },
-                    xAxis: {
-                        categories: ['Tasks', 'Tasks Completed', 'Uncertainities', 'Urgency', 'Graph Complexity']
-                    },
-                    yAxis: {
-                        title: {
-                            text: 'Number'
-                        }
-                    },
-                    series: [{
-                        name: '$PatientName',
-                        data: [6, 2, 4, 5, 4]
-                        }]
-                });
-            });
-        }
+        showModal(this.id)
+    });
 
-        $("#demo02").animatedModal({
-                modalTarget:'modal-02',
-                animatedIn:'zoomIn',
-                animatedOut:'fadeOut',
-                color:'rgba(44, 80, 147, 0.5)',
-                // Callbacks
-                beforeOpen: function() {
-                     $(".content").addClass("blur")
-                     $(".navbar").addClass("blur")
-                },
-                afterOpen: function() {
-                },
-                beforeClose: function() {
-                    $(".content").removeClass("blur")
-                    $(".navbar").removeClass("blur")
-                },
-                afterClose: function() {
 
-                }
-            });
-
-            $("#demo02").click();
+    $('#grid-table tbody').on('click', 'tr', function (e) {
+        var data = gtable.row( this ).data();
+        showModal(data[0])
     });
 
     $(function () {
