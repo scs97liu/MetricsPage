@@ -100,6 +100,12 @@ jQuery(document).ready(function($) {
             });
     });
 
+    $('#resetSearch').click(function(e){
+        $(".circle-border").each(function(){
+            $(this).closest('div.card').parent().fadeIn();
+        });
+    });
+
     $('.form-search').on('submit',function(){return false;});
     $('.form-search .btn').on('click', function(e){
         var query = $.trim($(this).prevAll('.search-query').val()).toLowerCase();
