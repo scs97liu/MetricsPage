@@ -152,6 +152,20 @@
     color:white;
 }
 
+
+#legendDropDown{
+    background-color: #404040;
+}
+
+#searchButton{
+    border-color: white;
+    color: white;
+}
+
+#searchButton:hover{
+    background-color: #404040;
+}
+
 #modal-body{
     padding: 30px 30px 30px 30px;
     margin: 2% 15% 5% 15%;
@@ -165,6 +179,17 @@
     color: #000;
 }
 
+#legend{
+    color: white;
+}
+
+#legendCode{
+    margin-top: 10px;
+}
+
+#legend:hover{
+    background-color: black;
+}
 /*Undetermined
 Patient awaiting physician and/or assessment.
 Good

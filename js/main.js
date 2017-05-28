@@ -89,4 +89,16 @@ jQuery(document).ready(function($) {
     $('#modal-02').click(function(e){
         $('.close-modal-02').click();
     });
+
+    $('.form-search').on('submit',function(){return false;});
+    $('.form-search .btn').on('click', function(e){
+        var query = $.trim($(this).prevAll('.search-query').val()).toLowerCase();
+        $(".card-title").each(function(){
+             var $this = $(this);
+             if($this.text().toLowerCase().indexOf(query) === -1){
+                $this.closest('div.card').parent().fadeOut();
+            }
+            else $this.closest('div.card').parent().fadeIn();
+        });
+    });
 });
