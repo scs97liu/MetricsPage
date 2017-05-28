@@ -104,8 +104,8 @@ jQuery(document).ready(function($) {
 
 
     $('#modal-02').click(function(e){
-        if(!$(event.target).is('div.modal-content')){
-            $('.close-modal-02').click();
+        if (!$(e.target).is('.close-modal-02')) {
+            $(this).find(".close-modal-02").trigger('click');
         }
     });
 
