@@ -38,22 +38,16 @@ jQuery(document).ready(function($) {
                 color:'rgba(44, 80, 147, 0.5)',
                 // Callbacks
                 beforeOpen: function() {
-                    console.log("The animation was called");
                      $(".content").addClass("blur")
                      $(".navbar").addClass("blur")
                 },
                 afterOpen: function() {
-                    console.log("The animation is completed");
-
                 },
                 beforeClose: function() {
-                    console.log("The animation was called");
                     $(".content").removeClass("blur")
                     $(".navbar").removeClass("blur")
-
                 },
                 afterClose: function() {
-                    console.log("The animation is completed");
 
                 }
             });
@@ -90,5 +84,9 @@ jQuery(document).ready(function($) {
     if (e.keyCode === 27) {
         $('.close-modal-02').click();
     }  // esc
+    });
+
+    $('#modal-02').click(function(e){
+        $('.close-modal-02').click();
     });
 });
