@@ -46,6 +46,10 @@
 	filter: blur(3px);
 }
 
+.hide {
+   display: none;
+}
+
 .modal-content h2,h5{
     text-align: center
 }
@@ -105,7 +109,6 @@
 #card-content h6, p{
     color: black;
 }
-
 
 .fa-mars{
     color: #3D77CE;
@@ -178,6 +181,16 @@
 #close-button{
     color: #000;
 }
+
+.table-white {
+    background-color: #fff;
+}
+
+.grid {
+    margin-top: 10px;
+}
+
+
 
 #legend{
     color: white;

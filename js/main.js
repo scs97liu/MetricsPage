@@ -1,4 +1,28 @@
 jQuery(document).ready(function($) {
+
+
+    $('#CardView').click(function(e) {
+        if (!$(this).hasClass('active')) {
+            // Unhide card list, hide grid, make grid button active
+            $('#card-list').removeClass('hide');
+            $('#grid-list').addClass('hide');
+            $('#CardView').addClass('active');
+            $('#ListView').removeClass('active');
+        }
+    });
+
+    $('#ListView').click(function(e) {
+        if (!$(this).hasClass('active')) {
+            // Unhide card list, hide grid, make grid button active
+            $('#grid-list').removeClass('hide');
+            $('#card-list').addClass('hide');
+            $('#CardView').removeClass('active');
+            $('#ListView').addClass('active');
+        }
+    });
+
+
+
      $('.card').click(function(e) {
         e.preventDefault();
         if (this.id != "Donalad") {

@@ -17,6 +17,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
 
+        <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+
     </head>
 
     <body style="background-color: #066bc4;">
@@ -28,6 +31,12 @@
         <script src="js/animatedModal.min.js"></script>
         <script src="js/highcharts.js"></script>
         <script src="js/charts.js"></script>
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>
+
+
+
 
         <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,6 +83,14 @@
                         <a class="nav-link unselectable" id="resetSearch">Reset Search</a>
                     </li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item active" id="CardView">
+                        <a class="nav-link"><i class="fa fa-table" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="nav-item" id="ListView">
+                        <a class="nav-link"><i class="fa  fa-list-alt" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
             </div>
         </nav>
 
@@ -91,10 +108,10 @@
             $GENDERfa-mars = male; fa-venus = female; fa-transgender-alt = other;
             -->
 
-        <div class="content container-fluid" id="card-list">
-            <div class="card-deck row-fluid">
-                <div class="col">
-                        <div class="card" id="TB00001">
+        <div class="content container-fluid " id="card-list">
+            <div class="card-deck">
+                <div class="col hide">
+                        <div class="card" id="$ID">
                             <div class="card-block" id="card-content">
                                 <h4 class="card-title">$NAME</h4>
                                 <h6 class="card-subtitle mb-2 text-muted">TB00001</h6>
@@ -161,6 +178,59 @@
           </div>
       </div>
 
+      <div class="container grid hide" id="grid-list">
+        <table id="grid-table" class="display table table-white text-center table-hover" cellspacing="0" width="100%">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tfoot class="thead-inverse">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Status</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr id="TB00001">
+                    <td>TB00001</td>
+                    <td>MIKE JONES</td>
+                    <td>62</td>
+                    <td><div class="circle-border dead">D</div></td>
+                </tr>
+                <tr id="TB00002">
+                    <td>TB00002</td>
+                    <td>DOpey Doo</td>
+                    <td>10</td>
+                    <td><div class="circle-border good">G</div></td>
+                </tr>
+                <tr id="TB00003">
+                    <td>TB00003</td>
+                    <td>Hill Billy</td>
+                    <td>88</td>
+                    <td><div class="circle-border fair">F</div></td>
+                </tr>
+                <tr id="TB00004">
+                    <td>TB00004</td>
+                    <td>Dr Kim</td>
+                    <td>30</td>
+                    <td><div class="circle-border serious">S</div></td>
+                </tr>
+                <tr id="TB00005">
+                    <td>TB00005</td>
+                    <td>Andy Mormon</td>
+                    <td>218</td>
+                    <td><div class="circle-border serious">S</div></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
       <script>
           function flash($element, times) {
             var colors = ['#FFFFFF', '#FFFF9C'];
@@ -170,6 +240,15 @@
                 flash($element, times - 1);
             }, 230);
             }
+         var gtable =  $('#grid-table').DataTable( {
+                "bPaginate": false
+            } );
+
+        $('#grid-table tbody').on('click', 'tr', function () {
+            var data = gtable.row( this ).data();
+            alert( 'You clicked on '+data[0]+'\'s row' );
+        } );
+
            var connection = new WebSocket("ws://localhost:9000/ws");
 
            connection.onopen = function () {
