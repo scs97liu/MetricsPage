@@ -6,6 +6,8 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Aurora Metrics</title>
 
+        <link rel="icon" href="js/favicon.ico">
+
         <!--Import Main css file-->
         <link rel="stylesheet" href="css/main.css">
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -92,10 +94,10 @@
         <div class="content container-fluid" id="card-list">
             <div class="card-deck row-fluid">
                 <div class="col">
-                        <div class="card" id="$ID">
+                        <div class="card" id="TB00001">
                             <div class="card-block" id="card-content">
                                 <h4 class="card-title">$NAME</h4>
-                                <h6 class="card-subtitle mb-2 text-muted">$ID</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">TB00001</h6>
                                 <p class="card-text"><i class="fa fa-mars" aria-hidden="true"></i>&nbsp;$AGEyr</p>
                                 <div class="circle-border $STATUS">$STATUS_SHORT</div>
 
@@ -103,10 +105,10 @@
                         </div>
                 </div>
                 <div class="col">
-                        <div class="card">
+                        <div class="card" id="TB00002">
                             <div class="card-block" id="card-content">
                                 <h4 class="card-title">Minnie Mouse</h4>
-                                <h6 class="card-subtitle mb-2 text-muted">TD10022/17</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">TB00002</h6>
                                 <p class="card-text"><i class="fa fa-venus" aria-hidden="true"></i>&nbsp;26yr</p>
                                 <div class="circle-border good"></div>
 
@@ -114,10 +116,10 @@
                         </div>
                 </div>
                 <div class="col">
-                        <div class="card">
+                        <div class="card" id="TB00003">
                             <div class="card-block" id="card-content">
                                 <h4 class="card-title">Scooby Doo</h4>
-                                <h6 class="card-subtitle mb-2 text-muted">TD20006/21</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">TB00003</h6>
                                 <p class="card-text"><i class="fa fa-transgender-alt" aria-hidden="true"></i>&nbsp;66yr</p>
                                 <div class="circle-border fair"></div>
                             </div>
@@ -160,11 +162,36 @@
       </div>
 
       <script>
+          function flash($element, times) {
+            var colors = ['#FFFFFF', '#FFFF9C'];
+            $element.css('background-color', colors[times % colors.length]);
+            if (times === 0) return;
+            setTimeout(function () {
+                flash($element, times - 1);
+            }, 230);
+            }
            var connection = new WebSocket("ws://localhost:9000/ws");
 
+           connection.onopen = function () {
+                    console.log("Connected to websocket")
+                };
+           
            // reload metrics on PCM update
            connection.onmessage = function (event) {
-                    console.log(event.data)
+                    console.log("WS msg: " + event.data)
+
+                    if (event.data.substring(0,2) == 'TB') {
+                        var xhttp = new XMLHttpRequest();
+                        // LOAD GET HERE FROM WS ID
+                        xhttp.open("GET", event.data + ".html", false);
+                        xhttp.send();
+                        document.getElementById(event.data).innerHTML = xhttp.responseText;
+
+                        // Flash to get attention of new PCM
+                        flash($('#' + event.data), 6)
+
+                        
+                    }
                 }
 
            connection.onerror = function (error) {
