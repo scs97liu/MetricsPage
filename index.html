@@ -51,7 +51,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./charts.html">Aggregate Metric</a>
                     </li>
-                    <li class="nav-item dropdown">
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li id="navbarRightItem" class="nav-item dropdown navRight">
                         <a class="nav-link dropdown-toggle unselectable" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Legend
                         </a>
@@ -73,17 +76,15 @@
                             </a>
                         </div>
                     </li>
-                    <li>
+                    <li class="navRight">
                         <form class="form-search form-inline">
                             <input class="form-control mr-sm-2 input-medium search-query" type="text" placeholder="Enter Name or PCM ID">
                             <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
                     </li>
                     <li>
-                        <a class="nav-link unselectable" id="resetSearch">Reset Search</a>
+                        <a class="nav-link unselectable" id="resetSearch">Reset</a>
                     </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item active" id="CardView">
                         <a class="nav-link"><i class="fa fa-table" aria-hidden="true"></i></a>
                     </li>
@@ -254,7 +255,7 @@
            connection.onopen = function () {
                     console.log("Connected to websocket")
                 };
-           
+
            // reload metrics on PCM update
            connection.onmessage = function (event) {
                     console.log("WS msg: " + event.data)
@@ -269,7 +270,7 @@
                         // Flash to get attention of new PCM
                         flash($('#' + event.data), 6)
 
-                        
+
                     }
                 }
 

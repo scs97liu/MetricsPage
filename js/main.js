@@ -4,6 +4,7 @@ jQuery(document).ready(function($) {
     $('#CardView').click(function(e) {
         if (!$(this).hasClass('active')) {
             // Unhide card list, hide grid, make grid button active
+            $('#navbarRightItem').removeClass('hide');
             $('#card-list').removeClass('hide');
             $('#grid-list').addClass('hide');
             $('#CardView').addClass('active');
@@ -14,14 +15,13 @@ jQuery(document).ready(function($) {
     $('#ListView').click(function(e) {
         if (!$(this).hasClass('active')) {
             // Unhide card list, hide grid, make grid button active
+            $('#navbarRightItem').addClass('hide');
             $('#grid-list').removeClass('hide');
             $('#card-list').addClass('hide');
             $('#CardView').removeClass('active');
             $('#ListView').addClass('active');
         }
     });
-
-
 
      $('.card').click(function(e) {
         e.preventDefault();
@@ -102,16 +102,19 @@ jQuery(document).ready(function($) {
         });
     });
 
+
+    $('#modal-02').click(function(e){
+        if(!$(event.target).is('div.modal-content')){
+            $('.close-modal-02').click();
+        }
+    });
+
     $(document).keyup(function(e) {
     //if (e.keyCode === 13)     // enter
     //if (e.keyCode === 27) $('.cancel').click();
     if (e.keyCode === 27) {
         $('.close-modal-02').click();
     }  // esc
-    });
-
-    $('#modal-02').click(function(e){
-        $('.close-modal-02').click();
     });
 
     $('.dropdown-item').click(function(e){
