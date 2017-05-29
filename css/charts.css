@@ -8,8 +8,11 @@
 }
 
 .highCharts{
-        margin: 50px auto;
+        margin: 2% 8% 2% 8%;
         align-items: center;
+        border-width : 1px;
+        border-color: black;
+        border-style: solid;
 }
 
 .navbar{
