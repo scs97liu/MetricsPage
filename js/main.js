@@ -141,27 +141,33 @@ jQuery(document).ready(function($) {
             });
     });
 
-    $('#resetSearch').click(function(e){
-        $(".circle-border").each(function(){
-            $(this).closest('div.card').parent().fadeIn();
-        });
-    });
+    $("input.form-control.form-control-sm").appendTo("form.form-search.form-inline");
+    $("#grid-table_filter").addClass('hide');
+    $("input.form-control.form-control-sm" ).attr( "id", "newSearch");
+    $("#newSearch").attr( "placeholder", "Enter Name or PCM ID");
+    $("#newSearch").removeClass("form-control-sm");
+    $("#newSearch").addClass("mr-sm-2 input-medium search-query");
+    
+    $('#newSearch').keyup(function(event){
+            var keyCode = event.which; // check which key was pressed
+            var term = $(this).val();
 
-    $('.form-search').on('submit',function(){return false;});
-    $('.form-search .btn').on('click', function(e){
-        var query = $.trim($(this).prevAll('.search-query').val()).toLowerCase();
-        $(".card-title").each(function(){
-             var $this = $(this);
-             if($this.text().toLowerCase().indexOf(query) === -1){
-                $this.closest('div.card').parent().fadeOut();
-            }
-            else $this.closest('div.card').parent().fadeIn();
+            var query = term
+            $(".card-title").each(function(){
+                var $this = $(this);
+                if($this.text().toLowerCase().indexOf(query) === -1){
+                    $this.closest('div.card').parent().fadeOut();
+                }
+                else $this.closest('div.card').parent().fadeIn();
+            });
+            $(".card-subtitle").each(function(){
+                var $this = $(this);
+                if($this.text().toLowerCase().indexOf(query) === -1){
+                }
+                else $this.closest('div.card').parent().fadeIn();
+            });
+
+            //$('#example').children().hide(); // hide all
+            //$('#example').children(':Contains("' + term + '")').show(); // toggle based on term
         });
-        $(".card-subtitle").each(function(){
-             var $this = $(this);
-             if($this.text().toLowerCase().indexOf(query) === -1){
-            }
-            else $this.closest('div.card').parent().fadeIn();
-        });
-    });
 });

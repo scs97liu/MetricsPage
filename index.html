@@ -77,13 +77,9 @@
                         </div>
                     </li>
                     <li class="navRight">
+                        
                         <form class="form-search form-inline">
-                            <input class="form-control mr-sm-2 input-medium search-query" type="text" placeholder="Enter Name or PCM ID">
-                            <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
-                    </li>
-                    <li>
-                        <a class="nav-link unselectable" id="resetSearch">Reset</a>
                     </li>
                     <li class="nav-item active" id="CardView">
                         <a class="nav-link"><i class="fa fa-table" aria-hidden="true"></i></a>
@@ -125,7 +121,7 @@
                 <div class="col">
                         <div class="card" id="TB00002">
                             <div class="card-block" id="card-content">
-                                <h4 class="card-title">Minnie Mouse</h4>
+                                <h4 class="card-title">MIKE JOnes</h4>
                                 <h6 class="card-subtitle mb-2 text-muted">TB00002</h6>
                                 <p class="card-text"><i class="fa fa-venus" aria-hidden="true"></i>&nbsp;26yr</p>
                                 <div class="circle-border good"></div>
@@ -241,10 +237,10 @@
                 flash($element, times - 1);
             }, 230);
         }
-
-        // tapped row in list
-     var gtable =  $('#grid-table').DataTable( {
-                "bPaginate": false
+        
+            // tapped row in list
+            var gtable =  $('#grid-table').DataTable( {
+                "dom": 'frt'
             } );
 
            var connection = new WebSocket("ws://localhost:9000/ws");

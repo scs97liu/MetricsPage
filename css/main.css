@@ -79,7 +79,7 @@ h5 {
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     color: #0275d8;
 }
 
