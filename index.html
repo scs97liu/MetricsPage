@@ -5,7 +5,6 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <title>Aurora Metrics</title>
-      <link rel="icon" href="js/favicon.ico">
       <!--Import Main css file-->
       <link rel="stylesheet" href="css/main.css"/>
       <link rel="stylesheet" href="css/icon.css"/>
@@ -31,14 +30,17 @@
          </button>
          <a class="navbar-brand unselectable">aurora</a>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto nav navbar-right">
-               <li class="nav-item active">
-                  <a class="nav-link" href="">Patient Metrics <span class="sr-only">(current)</span></a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="./charts.html">Aggregate Metric</a>
-               </li>
-            </ul>
+             <ul class="navbar-nav mr-auto nav navbar-left">
+                <li class="nav-item active">
+                   <a class="nav-link" href="index.html">Patient Metrics <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="charts.html">Aggregate Metric</a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="signOver.html">Sign Over</a>
+                </li>
+             </ul>
             <ul class="nav navbar-nav navbar-right">
                <li id="navbarRightItem" class="nav-item dropdown navRight">
                   <a class="nav-link dropdown-toggle unselectable" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -229,36 +231,36 @@
                flash($element, times - 1);
            }, 230);
          }
-         
+
            // tapped row in list
            var gtable =  $('#grid-table').DataTable( {
                "dom": 'frt'
            } );
-         
+
           var connection = new WebSocket("ws://localhost:9000/ws");
-         
+
           connection.onopen = function () {
                    console.log("Connected to websocket")
                };
-         
+
           // reload metrics on PCM update
           connection.onmessage = function (event) {
                    console.log("WS msg: " + event.data)
-         
+
                    if (event.data.substring(0,2) == 'TB') {
                        var xhttp = new XMLHttpRequest();
                        // LOAD GET HERE FROM WS ID
                        xhttp.open("GET", event.data + ".html", false);
                        xhttp.send();
                        document.getElementById(event.data).innerHTML = xhttp.responseText;
-         
+
                        // Flash to get attention of new PCM
                        flash($('#' + event.data), 6)
-         
-         
+
+
                    }
                }
-         
+
           connection.onerror = function (error) {
                    console.log('WebSocket Error ', error);
                };

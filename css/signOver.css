@@ -1,0 +1,90 @@
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.redText{
+    color: red;
+}
+
+.greenText{
+    color: green;
+}
+
+.circle-border {
+    display: inline-block;
+    color: white;
+    font: 18px sans-serif;
+    background: black;
+    border: 2px solid black;
+    width: 30px;
+    height: 30px;
+    border-radius: 17px;
+    /* half of width + borders */
+    line-height: 30px;
+    /* vertical center */
+    text-align: center;
+    /* horizontal center */
+}
+
+.circle-border.undetermined {
+    background: grey;
+}
+
+.circle-border.good {
+    background: green;
+}
+
+.circle-border.fair {
+    background: #E8E819;
+}
+
+.circle-border.serious {
+    background: #EE7600;
+}
+
+.circle-border.critical {
+    background: darkred;
+}
+
+.circle-border.dead {
+    background: black;
+    color: white;
+}
+
+.hide {
+    display: none;
+}
+
+.navbar {
+    color: white;
+}
+
+.navRight {
+    padding-left: 30px;
+}
+
+.grid {
+    margin: 30px auto;
+}
+
+.table {
+    overflow-y: hidden;
+    margin: auto;
+}
+
+.table th {
+    text-align: center;
+}
+
+.table td {
+    text-align: left;
+}
+
+.table-white {
+    background-color: #fff;
+}
