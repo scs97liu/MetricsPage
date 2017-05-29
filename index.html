@@ -77,6 +77,7 @@
                         </div>
                     </li>
                     <li class="navRight">
+                        
                         <form class="form-search form-inline">
                             <input class="form-control mr-sm-2 input-medium search-query" type="text" placeholder="Enter Name or PCM ID">
                             <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -241,10 +242,10 @@
                 flash($element, times - 1);
             }, 230);
         }
-
-        // tapped row in list
-     var gtable =  $('#grid-table').DataTable( {
-                "bPaginate": false
+        
+            // tapped row in list
+            var gtable =  $('#grid-table').DataTable( {
+                "dom": 'frt'
             } );
 
            var connection = new WebSocket("ws://localhost:9000/ws");

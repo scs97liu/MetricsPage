@@ -164,4 +164,11 @@ jQuery(document).ready(function($) {
             else $this.closest('div.card').parent().fadeIn();
         });
     });
+
+    $("input.form-control.form-control-sm").appendTo("form.form-search.form-inline");
+    $("input.form-control.form-control-sm" ).attr( "id", "newSearch");
+    $("#newSearch").attr( "placeholder", "Enter Name or PCM IDDD");
+    $("#newSearch").removeClass("form-control-sm");
+    $("#newSearch").addClass("mr-sm-2 input-medium search-query");
+    $("#grid-table_filter").addClass('hide');
 });
