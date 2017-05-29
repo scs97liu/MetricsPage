@@ -1,6 +1,4 @@
 jQuery(document).ready(function($) {
-
-
     $('#CardView').click(function(e) {
         if (!$(this).hasClass('active')) {
             // Unhide card list, hide grid, make grid button active
@@ -149,7 +147,7 @@ jQuery(document).ready(function($) {
     $("#newSearch").addClass("mr-sm-2 input-medium search-query");
     
     $('#newSearch').keyup(function(event){
-            var keyCode = event.which; // check which key was pressed
+            var keyCode = event.which;
             var term = $(this).val();
 
             var query = term
@@ -166,8 +164,15 @@ jQuery(document).ready(function($) {
                 }
                 else $this.closest('div.card').parent().fadeIn();
             });
-
-            //$('#example').children().hide(); // hide all
-            //$('#example').children(':Contains("' + term + '")').show(); // toggle based on term
         });
+
+
+    // close navBar toggle if open
+    $(document).click(function (event) {
+        var clickover = $(event.target);
+        var _opened = $("#navbarSupportedContent").hasClass("show");
+        if (_opened === true && !clickover.hasClass("navbar-toggle") && !clickover.is('input')) {
+            $("body > nav > button").click();
+        }
+    });
 });
