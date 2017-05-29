@@ -143,6 +143,7 @@ jQuery(document).ready(function($) {
             });
     });
 
+    // datatables css
     $("input.form-control.form-control-sm").appendTo("form.form-search.form-inline");
     $("#grid-table_filter").addClass('hide');
     $("input.form-control.form-control-sm" ).attr( "id", "newSearch");
@@ -176,7 +177,7 @@ jQuery(document).ready(function($) {
             $(this).closest('div.card').parent().fadeIn();
         });
     });
-    
+
     // close navBar toggle if open
     $(document).click(function (event) {
         var clickover = $(event.target);

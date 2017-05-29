@@ -127,10 +127,10 @@
                </div>
             </div>
             <div class="col">
-               <div class="card">
+               <div class="card" id="TB00000004">
                   <div class="card-block" id="card-content">
                      <h4 class="card-title">Daffy Doo</h4>
-                     <h6 class="card-subtitle mb-2 text-muted">TD30006/21</h6>
+                     <h6 class="card-subtitle mb-2 text-muted">TB00000004</h6>
                      <p class="card-text"><i class="fa fa-mars" aria-hidden="true"></i>&nbsp;6yr</p>
                      <div class="circle-border serious"></div>
                   </div>
@@ -247,17 +247,17 @@
           connection.onmessage = function (event) {
                    console.log("WS msg: " + event.data)
 
-                   if (event.data.substring(0,2) == 'TB') {
+                   var obj = jQuery.parseJSON(event.data);
+         
+                   if (obj.unitNum.substring(0,2) == 'TB') {
                        var xhttp = new XMLHttpRequest();
                        // LOAD GET HERE FROM WS ID
-                       xhttp.open("GET", event.data + ".html", false);
+                       xhttp.open("GET", obj.unitNum + ".html", false);
                        xhttp.send();
-                       document.getElementById(event.data).innerHTML = xhttp.responseText;
-
+                       document.getElementById(obj.unitNum).innerHTML = xhttp.responseText;
+         
                        // Flash to get attention of new PCM
-                       flash($('#' + event.data), 6)
-
-
+                       flash($('#' + obj.unitNum), 6)
                    }
                }
 
