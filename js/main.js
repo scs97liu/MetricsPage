@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
     var showModal = function(id) {
         console.log("PasSED ID:" + id)
         var xhttp = new XMLHttpRequest();
-        
+
         xhttp.open("GET", "testHTML.html", false);
         xhttp.send();
         document.getElementById("modal-02").innerHTML = xhttp.responseText;
@@ -59,7 +59,7 @@ jQuery(document).ready(function($) {
             animatedIn:'zoomIn',
             animatedOut:'bounceOutDown',
             color:'rgba(44, 80, 147, 0.5)',
-            zIndexIn: '9999',  
+            zIndexIn: '9999',
             zIndexOut: '9999',
             // Callbacks
             beforeOpen: function() {
