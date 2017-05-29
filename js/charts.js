@@ -25,8 +25,35 @@ $(function () {
     });
 });
 
+$(function () {
+    var myChart = Highcharts.chart('barChart2', {
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Aggregate Metric Analysis'
+        },
+        xAxis: {
+            categories: ['Tasks', 'Tasks Completed', 'Unceratinities', 'Urgencies', 'Graph Complexity']
+        },
+        yAxis: {
+            title: {
+                text: 'Total number of cases'
+            }
+        },
+        series: [{
+            name: 'Thunder Bay Regional',
+            data: [10, 7, 3, 10, 5]
+        },
+        {
+            name: 'Some Other Hospital',
+            data: [20, 1, 4, 6, 10]
+        }]
+    });
+});
+
 $(function(){
-    var pieChart = Highcharts.chart('pieChart', {
+    var myChart = Highcharts.chart('pieChart', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -39,7 +66,7 @@ $(function(){
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
-        
+
         plotOptions: {
             pie: {
                 allowPointSelect: true,
@@ -78,32 +105,5 @@ $(function(){
                 sliced: true
             }]
         }]
-    });
-
-    $(function () {
-        var myChart = Highcharts.chart('barChart2', {
-            chart: {
-                type: 'bar'
-            },
-            title: {
-                text: 'Diagnosis by number of cases'
-            },
-            xAxis: {
-                categories: ['Pneumonia', 'Ebola', 'Cancer', 'Cardiac Failure', 'HIV']
-            },
-            yAxis: {
-                title: {
-                    text: 'Number of Cases'
-                }
-            },
-            series: [{
-                name: 'Thunder Bay Regional',
-                data: [10, 7, 3, 10, 5]
-            },
-            {
-                name: 'Some Other Hospital',
-                data: [20, 1, 4, 6, 10]
-            }]
-        });
     });
 });
