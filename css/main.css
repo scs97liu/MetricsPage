@@ -8,150 +8,134 @@
 }
 
 .circle-border {
-        display: inline-block;
-        color: white;
-        font: 18px sans-serif;
-        background: black;
-        border:2px solid black;
-        width: 30px;
-        height: 30px;
-        border-radius:17px; /* half of width + borders */
-        line-height: 30px; /* vertical center */
-        text-align: center; /* horizontal center */
-    }
+    display: inline-block;
+    color: white;
+    font: 18px sans-serif;
+    background: black;
+    border: 2px solid black;
+    width: 30px;
+    height: 30px;
+    border-radius: 17px;
+    /* half of width + borders */
+    line-height: 30px;
+    /* vertical center */
+    text-align: center;
+    /* horizontal center */
+}
 
 .circle-border.undetermined {
-        background: grey;
-    }
+    background: grey;
+}
+
 .circle-border.good {
-        background: green;
-    }
+    background: green;
+}
+
 .circle-border.fair {
-        background: #E8E819;
-    }
+    background: #E8E819;
+}
+
 .circle-border.serious {
-        background: #EE7600;
-    }
+    background: #EE7600;
+}
+
 .circle-border.critical {
-        background: darkred;
-    }
+    background: darkred;
+}
+
 .circle-border.dead {
-        background: black;
-        color: white;
-    }
+    background: black;
+    color: white;
+}
 
 .blur {
-  -webkit-filter: blur(3px);
-	-moz-filter: blur(3px);
-	filter: blur(3px);
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    filter: blur(3px);
 }
 
 .hide {
-   display: none;
+    display: none;
 }
 
-.modal-content h2,h5{
+.modal-content h2,
+h5 {
     text-align: center
 }
 
-.table{
+.table {
     overflow-y: hidden;
 }
 
-.table th{
+.table th {
     text-align: center;
 }
 
-.card{
+.card {
     margin-top: 20px;
     cursor: pointer;
     cursor: hand;
-    transition:  all .2s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 
-.card:hover { transform: scale(1.05); color: #0275d8;}
+.card:hover {
+    transform: scale(1.05);
+    color: #0275d8;
+}
 
-
-#card-content h6, p{
+#card-content h6,
+p {
     color: black;
 }
 
-.fa-mars{
+.fa-mars {
     color: #3D77CE;
 }
 
-.fa-venus{
+.fa-venus {
     color: #CE44C4;
 }
 
-.fa-transgender-alt{
+.fa-transgender-alt {
     color: darkmagenta;
 }
 
-.fa-circle:before {
-  content: ' \25CF';
-  font-size: 35px;
+.navbar {
+    color: white;
 }
 
-.fa-circle.undetermined {
-  color: grey;
-}
-
-.fa-circle.good {
-  color: green;
-}
-
-.fa-circle.fair {
-  color: #ffdb58;
-}
-
-.fa-circle.serious {
-  color: #EE7600;
-}
-
-.fa-circle.critical {
-  color: darkred;
-}
-
-.fa-circle.dead {
-  color: black;
-}
-
-.navbar{
-    color:white;
-}
-
-.navRight{
+.navRight {
     padding-left: 30px;
 }
 
-#CardView{
+#CardView {
     padding-left: 30px;
 }
 
-#legendDropDown{
+#legendDropDown {
     background-color: #404040;
 }
 
-#searchButton{
+#searchButton {
     border-color: white;
     color: white;
 }
 
-#searchButton:hover{
+#searchButton:hover {
     background-color: #404040;
 }
 
-#modal-body{
+#modal-body {
     padding: 30px 30px 30px 30px;
     margin: 2% 15% 5% 15%;
     text-align: center;
 }
 
-#btn-close-modal{
+#btn-close-modal {
     margin: 10px 50% 10px 49%;
 }
-#close-button{
+
+#close-button {
     color: #000;
 }
 
@@ -163,19 +147,19 @@
     margin-top: 10px;
 }
 
-
-
-#legend{
+#legend {
     color: white;
 }
 
-#legendCode{
+#legendCode {
     margin-top: 10px;
 }
 
-#legend:hover{
+#legend:hover {
     background-color: #7F7F7F;
 }
+
+
 /*Undetermined
 Patient awaiting physician and/or assessment.
 Good
