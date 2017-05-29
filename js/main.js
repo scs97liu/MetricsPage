@@ -15,6 +15,9 @@ jQuery(document).ready(function($) {
     // click list view icon, hide card stuff
     $('#ListView').click(function(e) {
         if (!$(this).hasClass('active')) {
+            //redraw table // might not need
+            gtable.draw();
+
             // Unhide card list, hide grid, make grid button active
             $('#navbarRightItem').addClass('hide');
             $('#grid-list').removeClass('hide');
@@ -151,6 +154,7 @@ jQuery(document).ready(function($) {
     $("#newSearch").removeClass("form-control-sm");
     $("#newSearch").addClass("mr-sm-2 input-medium search-query");
     
+    // search as you type
     $('#newSearch').keyup(function(event){
             var keyCode = event.which;
             var term = $(this).val();
@@ -172,7 +176,7 @@ jQuery(document).ready(function($) {
         });
 
     $('#resetSearch').click(function(e){
-        $('#newSearch').val('');
+        gtable.search('').draw();
         $(".circle-border").each(function(){
             $(this).closest('div.card').parent().fadeIn();
         });
