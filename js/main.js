@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+    // click card view, hide list stuff
     $('#CardView').click(function(e) {
         if (!$(this).hasClass('active')) {
             // Unhide card list, hide grid, make grid button active
@@ -7,9 +8,11 @@ jQuery(document).ready(function($) {
             $('#grid-list').addClass('hide');
             $('#CardView').addClass('active');
             $('#ListView').removeClass('active');
+            $('#resetSearch').removeClass('hide');
         }
     });
 
+    // click list view icon, hide card stuff
     $('#ListView').click(function(e) {
         if (!$(this).hasClass('active')) {
             // Unhide card list, hide grid, make grid button active
@@ -18,6 +21,7 @@ jQuery(document).ready(function($) {
             $('#card-list').addClass('hide');
             $('#CardView').removeClass('active');
             $('#ListView').addClass('active');
+            $('#resetSearch').addClass('hide');
         }
     });
 
@@ -166,7 +170,13 @@ jQuery(document).ready(function($) {
             });
         });
 
-
+    $('#resetSearch').click(function(e){
+        $('#newSearch').val('');
+        $(".circle-border").each(function(){
+            $(this).closest('div.card').parent().fadeIn();
+        });
+    });
+    
     // close navBar toggle if open
     $(document).click(function (event) {
         var clickover = $(event.target);

@@ -15,7 +15,7 @@
       <link rel="stylesheet" href="css/animate.min.css"/>
       <link rel="stylesheet" href="css/dataTables.bootstrap4.min.css"/>
    </head>
-   <body style="background-color: #066bc4; overflow:hidden;">
+   <body style="background-color: #066bc4; height: 100vh;">
       <script src="js/jquery-3.2.1.min.js"></script>
       <script src="js/tether.min.js"></script>
       <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -23,7 +23,6 @@
       <script src="js/animatedModal.min.js"></script>
       <script src="js/highcharts.js"></script>
       <script src="js/charts.js"></script>
-      <script src="//code.jquery.com/jquery-1.12.4.js"></script>
       <script src="js/jquery.dataTables.min.js"></script>
       <script src="js/dataTables.bootstrap4.min.js"></script>
       <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
@@ -43,30 +42,33 @@
             <ul class="nav navbar-nav navbar-right">
                <li id="navbarRightItem" class="nav-item dropdown navRight">
                   <a class="nav-link dropdown-toggle unselectable" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Legend
+                  Sort by Status
                   </a>
                   <div class="dropdown-menu" id="legendDropDown" aria-labelledby="navbarDropdownMenuLink">
                      <a class="dropdown-item unselectable" id="legend">
                         <div id="legendCode" class="circle-border dead"></div>
-                        : Dead
+                         Dead
                      </a>
                      <a class="dropdown-item unselectable" id="legend">
                         <div id="legendCode" class="circle-border critical"></div>
-                        : Critical
+                         Critical
                      </a>
                      <a class="dropdown-item unselectable" id="legend">
                         <div id="legendCode" class="circle-border serious"></div>
-                        : Serious
+                         Serious
                      </a>
                      <a class="dropdown-item unselectable" id="legend">
                         <div id="legendCode" class="circle-border fair"></div>
-                        : Fair
+                         Fair
                      </a>
                      <a class="dropdown-item unselectable" id="legend">
                         <div id="legendCode" class="circle-border good"></div>
-                        : Good
+                         Good
                      </a>
                   </div>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" id="resetSearch"><i class="fa fa-undo" aria-hidden="true"></i></a>
                </li>
                <li class="navRight">
                   <form class="form-search form-inline">
@@ -156,7 +158,7 @@
             </div>
          </div>
       </div>
-      <div class="content container grid hide" id="grid-list">
+      <div class="content container grid hide" id="grid-list" style="margin-top: 20px;">
          <table id="grid-table" class="display table table-white text-center table-hover" cellspacing="0" width="100%">
             <thead class="thead-inverse">
                <tr>

@@ -5,6 +5,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    cursor:default;
 }
 
 .circle-border {
@@ -112,6 +113,12 @@ p {
     padding-left: 30px;
 }
 
+@media (max-width: 990px) {
+    .navRight, .nav-item, #CardView {
+        padding-left: 0px;
+    }
+}
+
 #legendDropDown {
     background-color: #404040;
 }
@@ -145,6 +152,11 @@ p {
 
 .grid {
     margin-top: 10px;
+}
+
+#grid-table {
+    cursor: pointer;
+    cursor: hand;
 }
 
 #legend {
